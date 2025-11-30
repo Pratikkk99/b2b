@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Users, UserPlus, MoreVertical, Search, Filter, Mail, Phone, Shield, X
@@ -20,7 +19,7 @@ export const AdminDashboard = () => (
     <div className="space-y-8">
         <div className="flex justify-between items-end">
              <div>
-                <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Admin Dashboard</h1>
+                <h1 className="text-3xl font-bold text-slate-900">Admin Dashboard</h1>
                 <p className="text-slate-500">Manage B2B Users.</p>
             </div>
         </div>
@@ -33,11 +32,11 @@ export const AdminDashboard = () => (
         {/* Create User Form (Matches b2b_users) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <GlassCard>
-                <div className="flex items-center gap-3 mb-6 border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
                     <div className="p-2 bg-brand-blue/10 rounded-lg text-brand-blue">
                         <UserPlus size={24} />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-800 dark:text-white">Create New User</h3>
+                    <h3 className="text-lg font-bold text-slate-800">Create New User</h3>
                 </div>
                 
                 <form className="space-y-6">
@@ -89,10 +88,10 @@ export const UserManagement = () => {
 
     const getRoleBadgeColor = (role: string) => {
         switch(role) {
-            case 'admin': return 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300';
-            case 'coach': return 'bg-brand-orange/10 text-brand-orange dark:bg-brand-orange/20';
-            case 'trainer': return 'bg-brand-blue/10 text-brand-blue dark:bg-brand-blue/20 dark:text-blue-300';
-            default: return 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400';
+            case 'admin': return 'bg-purple-100 text-purple-700';
+            case 'coach': return 'bg-brand-orange/10 text-brand-orange';
+            case 'trainer': return 'bg-brand-blue/10 text-brand-blue';
+            default: return 'bg-slate-100 text-slate-600';
         }
     };
 
@@ -100,7 +99,7 @@ export const UserManagement = () => {
         <div className="space-y-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-900 dark:text-white">All Members</h1>
+                    <h1 className="text-3xl font-bold text-slate-900">All Members</h1>
                     <p className="text-slate-500">View and manage all registered users.</p>
                 </div>
                 <Button>
@@ -110,7 +109,7 @@ export const UserManagement = () => {
 
             <GlassCard noPadding className="overflow-hidden">
                 {/* Search and Filters */}
-                <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-4 bg-slate-50/50 dark:bg-slate-900/50">
+                <div className="p-4 border-b border-slate-200 flex flex-col sm:flex-row gap-4 bg-slate-50/50">
                     <div className="relative flex-1 group">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-brand-blue transition-colors" size={18} />
                         <input 
@@ -118,12 +117,12 @@ export const UserManagement = () => {
                             placeholder="Search users by name or email..." 
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-10 pr-10 py-2.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition-all shadow-sm"
+                            className="w-full pl-10 pr-10 py-2.5 rounded-lg bg-white border border-slate-200 focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none transition-all shadow-sm"
                         />
                         {searchTerm && (
                             <button 
                                 onClick={() => setSearchTerm('')} 
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
                             >
                                 <X size={16} />
                             </button>
@@ -132,7 +131,7 @@ export const UserManagement = () => {
                     <div className="w-full sm:w-48">
                         <div className="relative">
                             <select 
-                                className="w-full pl-4 pr-10 py-2.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none appearance-none shadow-sm cursor-pointer"
+                                className="w-full pl-4 pr-10 py-2.5 rounded-lg bg-white border border-slate-200 focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue outline-none appearance-none shadow-sm cursor-pointer"
                                 value={filterRole}
                                 onChange={(e) => setFilterRole(e.target.value)}
                             >
@@ -150,7 +149,7 @@ export const UserManagement = () => {
                 {/* Table */}
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
-                        <thead className="bg-slate-50 dark:bg-slate-900/50 text-xs font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200 dark:border-slate-800">
+                        <thead className="bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200">
                             <tr>
                                 <th className="px-6 py-4">User Details</th>
                                 <th className="px-6 py-4">Role</th>
@@ -159,16 +158,16 @@ export const UserManagement = () => {
                                 <th className="px-6 py-4 text-right">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-sm">
+                        <tbody className="divide-y divide-slate-100 text-sm">
                             {filteredUsers.map((user) => (
-                                <tr key={user.user_id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <tr key={user.user_id} className="hover:bg-slate-50 transition-colors">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 font-bold text-xs ring-2 ring-white dark:ring-slate-800">
+                                            <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-xs ring-2 ring-white">
                                                 {user.user_full_name.split(' ').map(n => n[0]).join('').substring(0,2)}
                                             </div>
                                             <div>
-                                                <p className="font-bold text-slate-900 dark:text-white">{user.user_full_name}</p>
+                                                <p className="font-bold text-slate-900">{user.user_full_name}</p>
                                                 <p className="text-xs text-slate-500">ID: #{user.user_id}</p>
                                             </div>
                                         </div>
@@ -180,7 +179,7 @@ export const UserManagement = () => {
                                         </span>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <div className="flex flex-col gap-1 text-slate-600 dark:text-slate-400">
+                                        <div className="flex flex-col gap-1 text-slate-600">
                                             <div className="flex items-center gap-2 text-xs">
                                                 <Mail size={12} />
                                                 {user.user_email}
@@ -193,19 +192,19 @@ export const UserManagement = () => {
                                     </td>
                                     <td className="px-6 py-4">
                                         {user.user_status === 'active' ? (
-                                            <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-xs font-bold border border-green-100 dark:border-green-900/30">
+                                            <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-green-50 text-green-600 text-xs font-bold border border-green-100">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                                                 Active
                                             </span>
                                         ) : (
-                                            <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 text-xs font-bold border border-slate-200 dark:border-slate-700">
+                                            <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-slate-100 text-slate-500 text-xs font-bold border border-slate-200">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
                                                 Inactive
                                             </span>
                                         )}
                                     </td>
                                     <td className="px-6 py-4 text-right">
-                                        <button className="p-2 rounded-lg text-slate-400 hover:text-brand-blue hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                        <button className="p-2 rounded-lg text-slate-400 hover:text-brand-blue hover:bg-slate-100 transition-all">
                                             <MoreVertical size={18} />
                                         </button>
                                     </td>
@@ -216,10 +215,10 @@ export const UserManagement = () => {
                     
                     {filteredUsers.length === 0 && (
                         <div className="py-12 px-6 text-center">
-                            <div className="mx-auto w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4 text-slate-400">
+                            <div className="mx-auto w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-400">
                                 <Search size={24} />
                             </div>
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white">No users found</h3>
+                            <h3 className="text-lg font-bold text-slate-900">No users found</h3>
                             <p className="text-slate-500 text-sm mt-1">
                                 We couldn't find any users matching "{searchTerm}" with the selected filter.
                             </p>
@@ -234,11 +233,11 @@ export const UserManagement = () => {
                 </div>
                 
                 {filteredUsers.length > 0 && (
-                    <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/30 flex justify-between items-center text-xs text-slate-500">
+                    <div className="p-4 border-t border-slate-200 bg-slate-50 flex justify-between items-center text-xs text-slate-500">
                         <span>Showing {filteredUsers.length} entries</span>
                         <div className="flex gap-2">
-                            <button className="px-3 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 disabled:opacity-50" disabled>Previous</button>
-                            <button className="px-3 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 disabled:opacity-50" disabled>Next</button>
+                            <button className="px-3 py-1 rounded bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-50" disabled>Previous</button>
+                            <button className="px-3 py-1 rounded bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-50" disabled>Next</button>
                         </div>
                     </div>
                 )}

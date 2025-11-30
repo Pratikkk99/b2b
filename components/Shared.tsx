@@ -17,8 +17,8 @@ export const GlassCard: React.FC<GlassCardProps> = ({ children, className = '', 
   <div 
     onClick={onClick}
     className={`
-      bg-white dark:bg-slate-800 
-      border border-slate-100 dark:border-slate-700
+      bg-white 
+      border border-slate-100
       shadow-sm rounded-xl
       transition-all duration-300
       hover:shadow-md
@@ -37,7 +37,7 @@ interface StatCardProps {
   trend?: 'up' | 'down' | 'neutral';
   trendValue?: string;
   icon: React.ReactNode;
-  colorClass?: string; // Expecting tailwind text color class like 'text-brand-orange'
+  colorClass?: string; 
 }
 
 export const StatCard: React.FC<StatCardProps> = ({ label, value, trend, trendValue, icon, colorClass = "text-brand-blue" }) => (
@@ -46,13 +46,13 @@ export const StatCard: React.FC<StatCardProps> = ({ label, value, trend, trendVa
       {React.cloneElement(icon as React.ReactElement<any>, { size: 64 })}
     </div>
     <div className="flex items-center gap-4 mb-3">
-      <div className={`p-3 rounded-lg bg-slate-50 dark:bg-slate-700/50 ${colorClass}`}>
+      <div className={`p-3 rounded-lg bg-slate-50 ${colorClass}`}>
         {icon}
       </div>
-      <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400">{label}</h3>
+      <h3 className="text-sm font-medium text-slate-500">{label}</h3>
     </div>
     <div>
-      <div className="text-3xl font-bold text-slate-900 dark:text-white">{value}</div>
+      <div className="text-3xl font-bold text-slate-900">{value}</div>
       {trend && (
         <div className={`flex items-center text-sm mt-1 font-medium ${trend === 'up' ? 'text-green-500' : trend === 'down' ? 'text-red-500' : 'text-slate-400'}`}>
           {trend === 'up' ? <ArrowUp size={16} /> : trend === 'down' ? <ArrowDown size={16} /> : null}
@@ -82,7 +82,8 @@ export const ActivityChart = ({ data }: { data: any[] }) => (
           backgroundColor: '#fff', 
           borderRadius: '8px', 
           border: '1px solid #e2e8f0', 
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' 
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+          color: '#1e293b'
         }} 
       />
       <Area 
@@ -102,7 +103,7 @@ export const ComplianceChart = ({ data }: { data: any[] }) => (
       <BarChart data={data} barSize={20}>
         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
         <XAxis dataKey="name" stroke="#94a3b8" fontSize={10} axisLine={false} tickLine={false} />
-        <Tooltip cursor={{fill: 'transparent'}} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}/>
+        <Tooltip cursor={{fill: 'transparent'}} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 10px rgba(0,0,0,0.1)', color: '#1e293b' }}/>
         <Legend />
         <Bar dataKey="completed" fill="#0057b7" radius={[4, 4, 0, 0]} name="Completed" />
         <Bar dataKey="assigned" fill="#cbd5e1" radius={[4, 4, 0, 0]} name="Assigned" />
@@ -115,8 +116,8 @@ export const Button = ({ children, variant = 'primary', className = '', ...props
   const baseStyle = "px-5 py-2.5 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2 active:scale-95 text-sm";
   const variants = {
     primary: "bg-brand-blue hover:bg-blue-700 text-white shadow-md shadow-blue-500/20",
-    secondary: "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700",
-    ghost: "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800",
+    secondary: "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50",
+    ghost: "text-slate-600 hover:bg-slate-100",
     danger: "bg-red-50 text-red-600 hover:bg-red-100 border border-red-100",
     success: "bg-brand-green text-white hover:bg-lime-600 shadow-md shadow-lime-500/20"
   };
@@ -131,15 +132,15 @@ export const Button = ({ children, variant = 'primary', className = '', ...props
 // --- Form Elements ---
 export const Input = ({ label, className = '', ...props }: any) => (
   <div className="w-full">
-    {label && <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">{label}</label>}
+    {label && <label className="block text-sm font-medium text-slate-700 mb-1.5">{label}</label>}
     <input 
       className={`
         w-full px-4 py-2.5 rounded-lg 
-        bg-white dark:bg-slate-800 
-        border border-slate-200 dark:border-slate-700 
+        bg-white 
+        border border-slate-200 
         focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 
         outline-none transition-all
-        text-slate-900 dark:text-white
+        text-slate-900
         placeholder:text-slate-400
         ${className}
       `}
@@ -150,16 +151,16 @@ export const Input = ({ label, className = '', ...props }: any) => (
 
 export const Select = ({ label, options, className = '', ...props }: any) => (
   <div className="w-full">
-    {label && <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">{label}</label>}
+    {label && <label className="block text-sm font-medium text-slate-700 mb-1.5">{label}</label>}
     <div className="relative">
       <select 
         className={`
           w-full px-4 py-2.5 rounded-lg appearance-none
-          bg-white dark:bg-slate-800 
-          border border-slate-200 dark:border-slate-700 
+          bg-white 
+          border border-slate-200 
           focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 
           outline-none transition-all
-          text-slate-900 dark:text-white
+          text-slate-900
           ${className}
         `}
         {...props}
@@ -177,12 +178,12 @@ export const Select = ({ label, options, className = '', ...props }: any) => (
 
 export const FileUpload = ({ label }: { label: string }) => (
   <div className="w-full">
-    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">{label}</label>
-    <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-brand-blue hover:bg-brand-blue/5 transition-all group">
-      <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+    <label className="block text-sm font-medium text-slate-700 mb-1.5">{label}</label>
+    <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-brand-blue hover:bg-brand-blue/5 transition-all group">
+      <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
         <Upload size={20} className="text-slate-500 group-hover:text-brand-blue" />
       </div>
-      <p className="text-sm font-medium text-slate-700 dark:text-slate-300">Click to upload media</p>
+      <p className="text-sm font-medium text-slate-700">Click to upload media</p>
       <p className="text-xs text-slate-500 mt-1">JPG, PNG, MP4 up to 10MB</p>
     </div>
   </div>

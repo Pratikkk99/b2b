@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { 
-  Users, AlertCircle, FileText, CheckCircle, Search, Filter, Calendar, History, Eye, Image as ImageIcon
+  Users, FileText, CheckCircle, Search, History, Image as ImageIcon
 } from 'lucide-react';
 import { GlassCard, StatCard, Button, Input, Select } from '../components/Shared';
 import { UserRole } from '../types';
@@ -20,8 +19,8 @@ export const ProfessionalDashboard: React.FC<ProfessionalProps> = ({ role }) => 
         <div className="space-y-8">
             <div className="flex flex-col md:flex-row gap-6 items-start justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">{expertType} Dashboard</h1>
-                    <p className="text-slate-500 dark:text-slate-400">Manage members and review {reviewType.toLowerCase()}.</p>
+                    <h1 className="text-3xl font-bold text-slate-900 mb-2">{expertType} Dashboard</h1>
+                    <p className="text-slate-500">Manage members and review {reviewType.toLowerCase()}.</p>
                 </div>
             </div>
 
@@ -34,16 +33,16 @@ export const ProfessionalDashboard: React.FC<ProfessionalProps> = ({ role }) => 
             {/* Member Status Table */}
             <GlassCard>
                 <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
-                    <h3 className="text-lg font-bold text-slate-800 dark:text-white">Member Status</h3>
+                    <h3 className="text-lg font-bold text-slate-800">Member Status</h3>
                     <div className="flex items-center gap-2 w-full sm:w-auto">
                         <div className="relative flex-1 sm:flex-none">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16}/>
                             <input 
-                                className="pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-sm w-full" 
+                                className="pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm w-full" 
                                 placeholder="Search member..."
                             />
                         </div>
-                        <select className="px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-sm">
+                        <select className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm">
                             <option>All Status</option>
                             <option>Pending Review</option>
                             <option>Flagged</option>
@@ -52,7 +51,7 @@ export const ProfessionalDashboard: React.FC<ProfessionalProps> = ({ role }) => 
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
-                        <thead className="bg-slate-50 dark:bg-slate-900 text-xs uppercase text-slate-500">
+                        <thead className="bg-slate-50 text-xs uppercase text-slate-500">
                             <tr>
                                 <th className="px-6 py-3">Member</th>
                                 <th className="px-6 py-3">Last Log Date</th>
@@ -60,8 +59,8 @@ export const ProfessionalDashboard: React.FC<ProfessionalProps> = ({ role }) => 
                                 <th className="px-6 py-3">Action</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-sm">
-                            <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                        <tbody className="divide-y divide-slate-100 text-sm">
+                            <tr className="hover:bg-slate-50">
                                 <td className="px-6 py-4 font-medium">Jane Doe</td>
                                 <td className="px-6 py-4">Oct 24, 2024</td>
                                 <td className="px-6 py-4">
@@ -71,7 +70,7 @@ export const ProfessionalDashboard: React.FC<ProfessionalProps> = ({ role }) => 
                                 </td>
                                 <td className="px-6 py-4"><Button variant="ghost" className="!p-2 text-xs">Review</Button></td>
                             </tr>
-                            <tr className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                            <tr className="hover:bg-slate-50">
                                 <td className="px-6 py-4 font-medium">Mike Ross</td>
                                 <td className="px-6 py-4">Oct 23, 2024</td>
                                 <td className="px-6 py-4">
@@ -97,7 +96,7 @@ export const PlanManager = ({ role }: { role: UserRole }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Builder Area */}
             <div className="lg:col-span-2 space-y-6">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Create {planType}</h2>
+                <h2 className="text-2xl font-bold text-slate-900">Create {planType}</h2>
                 <GlassCard>
                     <form className="space-y-6">
                         <Select 
@@ -112,13 +111,13 @@ export const PlanManager = ({ role }: { role: UserRole }) => {
 
                         <div>
                             <div className="flex items-center justify-between mb-2">
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                                <label className="block text-sm font-medium text-slate-700">
                                     {planType} Details
                                 </label>
                                 <span className="text-xs text-brand-blue font-bold">Autosave on</span>
                             </div>
-                            <div className="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
-                                <div className="bg-slate-50 dark:bg-slate-900 px-4 py-2 border-b border-slate-200 dark:border-slate-700 flex gap-2 overflow-x-auto">
+                            <div className="border border-slate-200 rounded-xl overflow-hidden">
+                                <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 flex gap-2 overflow-x-auto">
                                     {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
                                         <button key={day} type="button" className="px-3 py-1 text-xs font-bold text-slate-600 hover:text-brand-blue hover:bg-white rounded-md transition-colors">
                                             {day}
@@ -126,7 +125,7 @@ export const PlanManager = ({ role }: { role: UserRole }) => {
                                     ))}
                                 </div>
                                 <textarea 
-                                    className="w-full h-96 p-4 bg-white dark:bg-slate-800 focus:outline-none resize-none font-mono text-sm"
+                                    className="w-full h-96 p-4 bg-white focus:outline-none resize-none font-mono text-sm"
                                     placeholder={isTrainer 
                                         ? "Focus: Chest & Triceps\n\n1. Bench Press: 4 sets x 8-10 reps\n2. Incline DB Press: 3 sets x 12 reps..." 
                                         : "Meal 1 (08:00): \n- 2 Whole Eggs\n- 1 Slice Whole Wheat Toast\n\nMeal 2 (13:00):..."}
@@ -142,13 +141,13 @@ export const PlanManager = ({ role }: { role: UserRole }) => {
 
             {/* Sidebar: History */}
             <div className="space-y-6">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Plan History</h3>
+                <h3 className="text-xl font-bold text-slate-900">Plan History</h3>
                 <GlassCard className="h-full max-h-[600px] overflow-y-auto">
                     <div className="space-y-4">
                         {[1, 2, 3].map((i) => (
-                            <div key={i} className="p-3 rounded-lg border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900/50 cursor-pointer transition-colors group">
+                            <div key={i} className="p-3 rounded-lg border border-slate-100 hover:bg-slate-50 cursor-pointer transition-colors group">
                                 <div className="flex justify-between items-start mb-1">
-                                    <span className="font-bold text-sm text-slate-700 dark:text-slate-300">Sep 0{i} - Sep 1{i}</span>
+                                    <span className="font-bold text-sm text-slate-700">Sep 0{i} - Sep 1{i}</span>
                                     <History size={14} className="text-slate-400 group-hover:text-brand-blue"/>
                                 </div>
                                 <p className="text-xs text-slate-500 line-clamp-2">
@@ -170,10 +169,10 @@ export const LogReview = ({ role }: { role: UserRole }) => {
 
     return (
         <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{title}</h2>
+            <h2 className="text-2xl font-bold text-slate-900">{title}</h2>
             
             <GlassCard>
-                <div className="flex justify-between items-start mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
+                <div className="flex justify-between items-start mb-6 pb-4 border-b border-slate-100">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue font-bold">JD</div>
                         <div>
@@ -188,14 +187,14 @@ export const LogReview = ({ role }: { role: UserRole }) => {
                     {/* Log Content */}
                     <div className="space-y-4">
                         <h4 className="font-bold text-sm text-slate-500 uppercase">Member Entry</h4>
-                        <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                             {isTrainer ? (
                                 <div className="space-y-4">
-                                    <div className="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+                                    <div className="flex justify-between border-b border-slate-200 pb-2">
                                         <span className="text-slate-500">Energy Level</span>
                                         <span className="font-bold text-brand-blue">8/10</span>
                                     </div>
-                                    <div className="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+                                    <div className="flex justify-between border-b border-slate-200 pb-2">
                                         <span className="text-slate-500">Completed</span>
                                         <span className="font-bold text-green-600">Yes</span>
                                     </div>
@@ -216,11 +215,11 @@ export const LogReview = ({ role }: { role: UserRole }) => {
                                      <div>
                                         <span className="block text-slate-500 mb-2">Meals Logged</span>
                                         <div className="space-y-2">
-                                            <div className="bg-white dark:bg-slate-800 p-2 rounded border border-slate-100 dark:border-slate-700 text-sm">
+                                            <div className="bg-white p-2 rounded border border-slate-100 text-sm">
                                                 <span className="font-bold text-brand-blue">Breakfast (08:00)</span>
                                                 <p>Oatmeal, Whey Protein, Banana</p>
                                             </div>
-                                            <div className="bg-white dark:bg-slate-800 p-2 rounded border border-slate-100 dark:border-slate-700 text-sm">
+                                            <div className="bg-white p-2 rounded border border-slate-100 text-sm">
                                                 <span className="font-bold text-brand-blue">Lunch (13:00)</span>
                                                 <p>Chicken Breast, Rice, Broccoli</p>
                                             </div>
@@ -232,7 +231,7 @@ export const LogReview = ({ role }: { role: UserRole }) => {
                                     </div>
                                     <div>
                                         <span className="block text-slate-500 mb-2">Photo Attachment</span>
-                                        <div className="w-full h-32 bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 text-sm">
+                                        <div className="w-full h-32 bg-slate-200 rounded-lg flex items-center justify-center text-slate-400 text-sm">
                                             <ImageIcon size={16} className="mr-2"/> No Image
                                         </div>
                                     </div>
@@ -244,15 +243,15 @@ export const LogReview = ({ role }: { role: UserRole }) => {
                     {/* Review Form */}
                     <div className="space-y-4">
                         <h4 className="font-bold text-sm text-slate-500 uppercase">Expert Action</h4>
-                        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <Input label="Points Awarded" type="number" defaultValue="10" />
                             
                             {!isTrainer && <Input label="Nutrition Score (1-10)" type="number" className="mt-4" />}
                             
                             <div className="mt-4">
-                                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Comments</label>
+                                <label className="block text-sm font-medium text-slate-700 mb-2">Comments</label>
                                 <textarea 
-                                    className="w-full h-32 p-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-blue/20 outline-none resize-none"
+                                    className="w-full h-32 p-3 rounded-lg bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-brand-blue/20 outline-none resize-none"
                                     placeholder="Provide feedback..."
                                 ></textarea>
                             </div>
@@ -270,7 +269,7 @@ export const LogReview = ({ role }: { role: UserRole }) => {
 export const ExpertFeedbackForm = () => {
     return (
         <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Weekly Expert Feedback</h2>
+            <h2 className="text-2xl font-bold text-slate-900">Weekly Expert Feedback</h2>
             <GlassCard>
                 <form className="space-y-6">
                     <Select 
@@ -284,17 +283,17 @@ export const ExpertFeedbackForm = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">General Comments</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">General Comments</label>
                         <textarea 
-                            className="w-full h-32 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 resize-none outline-none focus:ring-2 focus:ring-brand-blue/20"
+                            className="w-full h-32 p-4 rounded-xl bg-slate-50 border border-slate-200 resize-none outline-none focus:ring-2 focus:ring-brand-blue/20"
                             placeholder="Overall performance feedback..."
                         ></textarea>
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Recommended Actions</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Recommended Actions</label>
                         <textarea 
-                            className="w-full h-32 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 resize-none outline-none focus:ring-2 focus:ring-brand-blue/20"
+                            className="w-full h-32 p-4 rounded-xl bg-slate-50 border border-slate-200 resize-none outline-none focus:ring-2 focus:ring-brand-blue/20"
                             placeholder="Specific changes for next week..."
                         ></textarea>
                     </div>

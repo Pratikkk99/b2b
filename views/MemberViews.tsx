@@ -1,20 +1,18 @@
-
 import React, { useState } from 'react';
 import { 
-  Activity, Flame, Plus, Trash2, Save, Link as LinkIcon, Camera, Utensils, Dumbbell, TrendingUp, Calendar
+  Activity, Flame, Plus, Trash2, Link as LinkIcon, Camera, Utensils, Dumbbell
 } from 'lucide-react';
 import { GlassCard, StatCard, Button, Input, Select, ActivityChart, ComplianceChart } from '../components/Shared';
-import { DietLog, WorkoutLog, WeeklyCheckin, MemberProfile } from '../types';
 
 // --- MEMBER DASHBOARD ---
 export const MemberDashboard = () => {
   return (
     <div className="space-y-8">
       {/* Header & Points */}
-      <div className="flex flex-col md:flex-row gap-6 items-start justify-between bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+      <div className="flex flex-col md:flex-row gap-6 items-start justify-between bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Hello, Alex!</h1>
-          <p className="text-slate-500 dark:text-slate-400">You're on a <strong>7-day streak</strong>. Keep the momentum!</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">Hello, Alex!</h1>
+          <p className="text-slate-500">You're on a <strong>7-day streak</strong>. Keep the momentum!</p>
         </div>
         <div className="flex items-center gap-4">
              <div className="text-right hidden sm:block">
@@ -52,7 +50,7 @@ export const MemberDashboard = () => {
           </button>
           
            <GlassCard className="!p-6 flex flex-col justify-center items-center text-center space-y-2 group hover:border-brand-green/50 cursor-pointer">
-              <h3 className="font-bold text-slate-700 dark:text-slate-200">Today's Focus</h3>
+              <h3 className="font-bold text-slate-700">Today's Focus</h3>
               <p className="text-brand-green font-bold text-xl">Legs & Core</p>
               <p className="text-xs text-slate-500">Based on your workout plan</p>
           </GlassCard>
@@ -62,7 +60,7 @@ export const MemberDashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <GlassCard>
               <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-bold text-lg text-slate-800 dark:text-white flex items-center gap-2">
+                  <h3 className="font-bold text-lg text-slate-800 flex items-center gap-2">
                       <Activity size={18} className="text-brand-blue"/> Weekly Compliance
                   </h3>
               </div>
@@ -78,17 +76,17 @@ export const MemberDashboard = () => {
 
           <GlassCard>
               <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-bold text-lg text-slate-800 dark:text-white">Expert Feedback</h3>
+                  <h3 className="font-bold text-lg text-slate-800">Expert Feedback</h3>
                   <span className="text-xs font-bold bg-brand-green/10 text-brand-green px-2 py-1 rounded">New</span>
               </div>
-              <div className="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
-                  <p className="text-sm italic text-slate-600 dark:text-slate-300 mb-3">
+              <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                  <p className="text-sm italic text-slate-600 mb-3">
                       "Great job hitting your protein targets this week, Alex. Let's try to increase the intensity on leg day next week. Your form videos look solid."
                   </p>
-                  <div className="flex items-center justify-between border-t border-slate-200 dark:border-slate-700 pt-3">
+                  <div className="flex items-center justify-between border-t border-slate-200 pt-3">
                       <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700"></div>
-                          <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Coach Sarah</span>
+                          <div className="w-8 h-8 rounded-full bg-slate-200"></div>
+                          <span className="text-xs font-bold text-slate-700">Coach Sarah</span>
                       </div>
                       <span className="text-xs text-slate-400">Yesterday</span>
                   </div>
@@ -103,7 +101,7 @@ export const MemberDashboard = () => {
 export const MemberProgress = () => {
     return (
         <div className="space-y-8">
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white">My Progress</h1>
+            <h1 className="text-3xl font-bold text-slate-900">My Progress</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <StatCard label="Current Weight" value="75.5 kg" trend="down" trendValue="0.5kg" icon={<Activity size={24}/>} colorClass="text-brand-blue"/>
@@ -126,7 +124,7 @@ export const MemberProgress = () => {
                 <h3 className="font-bold text-lg mb-6">Adherence Score History</h3>
                  <div className="h-64 flex items-end justify-between gap-2 px-4">
                     {[85, 90, 88, 95, 92, 100].map((score, i) => (
-                        <div key={i} className="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg relative group">
+                        <div key={i} className="w-full bg-slate-100 rounded-t-lg relative group">
                             <div 
                                 className="absolute bottom-0 w-full bg-brand-blue/80 rounded-t-lg transition-all duration-500 hover:bg-brand-blue"
                                 style={{height: `${score}%`}}
@@ -148,7 +146,7 @@ export const MemberProgress = () => {
 export const MemberProfileSettings = () => {
     return (
         <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">My Profile</h2>
+            <h2 className="text-2xl font-bold text-slate-900">My Profile</h2>
             <p className="text-slate-500">Update your physical stats and preferences.</p>
             
             <GlassCard>
@@ -183,28 +181,28 @@ export const MemberProfileSettings = () => {
                     <Input label="Fitness Goal" placeholder="e.g. Lose 5kg and build muscle" />
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Medical Notes / Injuries</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Medical Notes / Injuries</label>
                         <textarea 
-                            className="w-full h-24 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-blue/20 outline-none resize-none"
+                            className="w-full h-24 p-4 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-brand-blue/20 outline-none resize-none"
                             placeholder="List any allergies, past injuries, or medical conditions..."
                         ></textarea>
                     </div>
 
-                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-900/50">
+                    <div className="p-4 bg-blue-50 rounded-xl border border-blue-100">
                         <h4 className="font-bold text-brand-blue mb-2 text-sm uppercase">Program Status</h4>
                         <div className="grid grid-cols-2 gap-4 text-sm mb-4">
                             <div>
                                 <span className="text-slate-500">Start Date:</span>
-                                <span className="block font-medium dark:text-slate-200">2024-01-01</span>
+                                <span className="block font-medium">2024-01-01</span>
                             </div>
                             <div>
                                 <span className="text-slate-500">End Date:</span>
-                                <span className="block font-medium dark:text-slate-200">2024-03-31</span>
+                                <span className="block font-medium">2024-03-31</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
                              <input type="checkbox" id="onboard" className="w-4 h-4 text-brand-blue rounded focus:ring-brand-blue" checked readOnly />
-                             <label htmlFor="onboard" className="text-sm font-medium text-slate-700 dark:text-slate-300">Onboarding Completed</label>
+                             <label htmlFor="onboard" className="text-sm font-medium text-slate-700">Onboarding Completed</label>
                         </div>
                     </div>
 
@@ -242,33 +240,33 @@ export const MemberDietLog = () => {
 
     return (
         <div className="max-w-3xl mx-auto space-y-6">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Log Daily Meals</h2>
+            <h2 className="text-2xl font-bold text-slate-900">Log Daily Meals</h2>
             <GlassCard>
                 <form className="space-y-6">
                     <Input type="date" label="Log Date" />
 
                     <div>
                         <div className="flex justify-between items-center mb-2">
-                             <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Meals Consumed</label>
+                             <label className="block text-sm font-medium text-slate-700">Meals Consumed</label>
                              <button type="button" onClick={addMealRow} className="text-xs text-brand-blue font-bold flex items-center gap-1 hover:underline">
                                 <Plus size={14} /> Add Meal
                              </button>
                         </div>
                         <div className="space-y-3">
                             {meals.map((meal, idx) => (
-                                <div key={idx} className="flex flex-col md:flex-row gap-3 p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 relative group">
+                                <div key={idx} className="flex flex-col md:flex-row gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200 relative group">
                                     <div className="flex-1 grid grid-cols-2 gap-3">
                                         <input 
                                             placeholder="Meal Name (e.g. Lunch)" 
                                             value={meal.name}
                                             onChange={(e) => updateMeal(idx, 'name', e.target.value)}
-                                            className="bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-sm outline-none focus:border-brand-blue"
+                                            className="bg-white px-3 py-2 rounded-lg border border-slate-200 text-sm outline-none focus:border-brand-blue"
                                         />
                                         <input 
                                             type="time"
                                             value={meal.time}
                                             onChange={(e) => updateMeal(idx, 'time', e.target.value)}
-                                            className="bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-sm outline-none focus:border-brand-blue"
+                                            className="bg-white px-3 py-2 rounded-lg border border-slate-200 text-sm outline-none focus:border-brand-blue"
                                         />
                                     </div>
                                     <div className="flex-[2] flex gap-2">
@@ -276,7 +274,7 @@ export const MemberDietLog = () => {
                                             placeholder="Items (comma separated)" 
                                             value={meal.items}
                                             onChange={(e) => updateMeal(idx, 'items', e.target.value)}
-                                            className="w-full bg-white dark:bg-slate-800 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-sm outline-none focus:border-brand-blue"
+                                            className="w-full bg-white px-3 py-2 rounded-lg border border-slate-200 text-sm outline-none focus:border-brand-blue"
                                         />
                                         <button 
                                             type="button" 
@@ -291,7 +289,7 @@ export const MemberDietLog = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                    <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
                         <input 
                             type="checkbox" 
                             checked={deviation} 
@@ -299,12 +297,12 @@ export const MemberDietLog = () => {
                             className="w-5 h-5 rounded border-slate-300 text-brand-blue focus:ring-brand-blue"
                         />
                         <div>
-                            <p className="font-medium text-slate-900 dark:text-white">Diet Deviation?</p>
+                            <p className="font-medium text-slate-900">Diet Deviation?</p>
                             <p className="text-xs text-slate-500">Check if you ate something outside your plan.</p>
                         </div>
                     </div>
 
-                    <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <Input label="Attachment URL (Photo)" placeholder="https://example.com/meal-photo.jpg" />
                         <p className="text-xs text-slate-500 mt-2 flex items-center gap-1"><Camera size={12}/> Paste a direct link to your meal photo</p>
                     </div>
@@ -331,14 +329,14 @@ export const MemberWorkoutLog = () => {
 
     return (
         <div className="max-w-2xl mx-auto space-y-6">
-             <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Log Workout</h2>
+             <h2 className="text-2xl font-bold text-slate-900">Log Workout</h2>
             <GlassCard>
                 <form className="space-y-6">
                     <Input type="date" label="Log Date" />
 
-                    <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
+                    <div className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
                         <div>
-                            <h3 className="font-bold text-slate-900 dark:text-white">Workout Completed?</h3>
+                            <h3 className="font-bold text-slate-900">Workout Completed?</h3>
                         </div>
                         <button 
                             type="button"
@@ -351,7 +349,7 @@ export const MemberWorkoutLog = () => {
 
                     <div>
                         <div className="flex justify-between mb-2">
-                             <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Energy Level (1-10)</label>
+                             <label className="text-sm font-medium text-slate-700">Energy Level (1-10)</label>
                              <span className={`font-bold ${energy > 7 ? 'text-brand-green' : energy < 4 ? 'text-brand-orange' : 'text-brand-blue'}`}>{energy}</span>
                         </div>
                         <input 
@@ -366,16 +364,16 @@ export const MemberWorkoutLog = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Injury Report</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Injury Report</label>
                         <textarea 
-                            className="w-full h-24 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-blue/20 outline-none resize-none"
+                            className="w-full h-24 p-4 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-brand-blue/20 outline-none resize-none"
                             placeholder="Describe any pain or injury..."
                         ></textarea>
                     </div>
 
                     <div>
                         <div className="flex justify-between items-center mb-2">
-                             <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">Media Attachments (JSON)</label>
+                             <label className="block text-sm font-medium text-slate-700">Media Attachments (JSON)</label>
                              <button type="button" onClick={addLink} className="text-xs text-brand-blue font-bold flex items-center gap-1 hover:underline">
                                 <Plus size={14} /> Add Link
                              </button>
@@ -389,7 +387,7 @@ export const MemberWorkoutLog = () => {
                                             value={link}
                                             onChange={(e) => updateLink(idx, e.target.value)}
                                             placeholder="https://..."
-                                            className="w-full pl-9 pr-4 py-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:border-brand-blue outline-none"
+                                            className="w-full pl-9 pr-4 py-2 rounded-lg bg-slate-50 border border-slate-200 text-sm focus:border-brand-blue outline-none"
                                         />
                                     </div>
                                 </div>
@@ -409,7 +407,7 @@ export const MemberWorkoutLog = () => {
 export const MemberCheckIn = () => {
     return (
         <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Weekly Check-in</h2>
+            <h2 className="text-2xl font-bold text-slate-900">Weekly Check-in</h2>
             <GlassCard>
                 <form className="space-y-6">
                     <div className="grid grid-cols-2 gap-6">
@@ -423,9 +421,9 @@ export const MemberCheckIn = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Challenges Faced</label>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Challenges Faced</label>
                         <textarea 
-                            className="w-full h-32 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-blue/20 outline-none resize-none"
+                            className="w-full h-32 p-4 rounded-xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-brand-blue/20 outline-none resize-none"
                             placeholder="What did you struggle with this week?"
                         ></textarea>
                     </div>
